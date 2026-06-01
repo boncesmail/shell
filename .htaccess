@@ -1,0 +1,17 @@
+DirectorySlash Off
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^slot777/$ /slot777 [R=301,L]
+
+RewriteBase /
+
+# Akses langsung ke folder demo
+RewriteRule ^stsponsscheme/?$ demo/index.php [L]
+
+# Hilangkan index.php dari URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
